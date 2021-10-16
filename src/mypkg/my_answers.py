@@ -13,8 +13,20 @@ Write a function named generateParenthesis that takes an integer as an input and
 as an output. Note that you can define a function inside a function if necessary.
 """
 
-
-
+def generateParenthesis(n):
+    def paranthesis(string,left,right):
+     if(right==n):
+        print(string)
+        return
+     if(left<n):
+        paranthesis(string+'(', left+1, right)
+     if(right<left):
+            paranthesis(string+')', left, right+1)
+    paranthesis('',0,0)
+            
+n = 3
+string = [""] * 2 * n
+generateParenthesis(n)
 
 
 
@@ -33,6 +45,24 @@ Input: "race a car"
 Output: false
 Write a function named isPalindrome that takes a string as an input and returns a bool as an output.
 """
+
+def isPalindrome(s):
+            length=len(s)
+            left=0
+            right=length-1
+            s=s.lower()
+            while(left<=right):
+                if (not s[left]>='a' and s[left]<='n'):
+                    left=left+1
+                if (not s[right]>='a' and s[right]<='n'):
+                    right=right-1
+                    if(s[left]==s[right]):
+                        left +=1
+                        right -=1
+                    else:
+                            return False
+                    return True
+
 
 
 
